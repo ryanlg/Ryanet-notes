@@ -11,6 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @ComponentScan(basePackages = "io.ryanliang.ryanet")
 public class WebConfig{
+
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -18,10 +19,5 @@ public class WebConfig{
         viewResolver.setSuffix(".jsp");
 
         return viewResolver;
-    }
-
-    public void configurePathMatch(PathMatchConfigurer configurer) {
-        final boolean DO_NOT_USE_SUFFIX_PATTERN_MATCHING = false;
-        configurer.setUseSuffixPatternMatch(DO_NOT_USE_SUFFIX_PATTERN_MATCHING);
     }
 }
