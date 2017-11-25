@@ -11,6 +11,9 @@
     <properties>
         <spring.version>5.0.0.RELEASE</spring.version>
         <tomcat.version>9.0.1</tomcat.version>
+
+        <maven.compiler.source>1.9</maven.compiler.source>
+        <maven.compiler.target>1.9</maven.compiler.target>
     </properties>
 
     <dependencies>
