@@ -1,5 +1,6 @@
 package io.ryanliang.ryanet;
 
+import io.ryanliang.ryanet.config.WebConfig;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -13,7 +14,7 @@ public class RyanetInitializer extends AbstractAnnotationConfigDispatcherServlet
     @Override
     protected Class<?>[] getRootConfigClasses() {
 
-        return null;
+        return new Class<?>[] {WebConfig.class};
     }
 
     @Override
