@@ -11,12 +11,14 @@
     <properties>
         <spring.version>5.0.0.RELEASE</spring.version>
         <tomcat.version>9.0.1</tomcat.version>
-
+        <hibernate.version>5.2.12.Final</hibernate.version>
         <maven.compiler.source>1.9</maven.compiler.source>
         <maven.compiler.target>1.9</maven.compiler.target>
     </properties>
 
     <dependencies>
+
+        <!-- Spring Framework -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -35,10 +37,18 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <!-- Servlet -->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-servlet-api</artifactId>
             <version>${tomcat.version}</version>
+        </dependency>
+
+        <!-- Hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
         </dependency>
     </dependencies>
 
