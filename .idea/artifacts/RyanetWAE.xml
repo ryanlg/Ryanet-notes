@@ -16,7 +16,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.0.RELEASE" />
         </element>
-        <element id="dir-copy" path="$PROJECT_DIR$/src/main/web" />
+        <element id="dir-copy" path="$PROJECT_DIR$/src/main/WEB-INF" />
       </element>
     </root>
   </artifact>
