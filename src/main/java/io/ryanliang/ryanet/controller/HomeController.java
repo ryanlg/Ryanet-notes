@@ -22,6 +22,7 @@ public class HomeController {
         this.noteService = noteService;
     }
 
+    @SuppressWarnings("SpringMVCViewInspection")
     @RequestMapping(method = RequestMethod.GET)
     public String sayHello(ModelMap model) {
         model.addAttribute("greeting", "Hello World from Spring 4 MVC");
@@ -36,6 +37,7 @@ public class HomeController {
         return "home";
     }
 
+    @SuppressWarnings("SpringMVCViewInspection")
     @RequestMapping(value = "/helloagain", method = RequestMethod.GET)
     public String sayHelloAgain(ModelMap model) {
         model.addAttribute("greeting", "Hello World Again, from Spring 4 MVC");
