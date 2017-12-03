@@ -18,7 +18,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan(basePackages = "io.ryanliang.ryanet")
-@PropertySource("classpath:hibernate.properties")
+@PropertySource("/WEB-INF/resource/properties/hibernate.properties")
 public class HibernateConfig {
 
     private Environment environment;

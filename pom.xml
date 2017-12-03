@@ -12,8 +12,9 @@
         <spring.version>5.0.0.RELEASE</spring.version>
         <tomcat.version>9.0.1</tomcat.version>
         <hibernate.version>5.2.12.Final</hibernate.version>
-        <maven.compiler.source>1.9</maven.compiler.source>
-        <maven.compiler.target>1.9</maven.compiler.target>
+        <mariadb.driver.version>2.2.0</mariadb.driver.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -55,6 +56,13 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- MariaDB Driver -->
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>${mariadb.driver.version}</version>
         </dependency>
     </dependencies>
 
