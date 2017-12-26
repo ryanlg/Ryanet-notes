@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "notes")
-public class Note implements GenericModel {
+public class Note {
 
     @Id
     @Column(name = "note_id", nullable = false)

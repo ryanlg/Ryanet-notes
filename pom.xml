@@ -64,7 +64,7 @@
             <artifactId>mariadb-java-client</artifactId>
             <version>${mariadb.driver.version}</version>
         </dependency>
-    </dependencies>
+   </dependencies>
 
 
     </project>
