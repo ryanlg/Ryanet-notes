@@ -23,10 +23,10 @@ public class Note {
     @Column(name = "note_html")
     private String html;
 
-    @Column(name = "note_date_created")
+    @Column(name = "note_date_created", nullable = false)
     private LocalDateTime createdDate;
 
-    @Column(name = "note_date_modified")
+    @Column(name = "note_date_modified", nullable = false)
     private LocalDateTime modifiedDate;
 
     public int getId() {

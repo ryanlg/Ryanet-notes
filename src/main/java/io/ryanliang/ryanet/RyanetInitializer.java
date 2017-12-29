@@ -21,4 +21,5 @@ public class RyanetInitializer extends AbstractAnnotationConfigDispatcherServlet
     protected String[] getServletMappings() {
         return new String[] { "/" };
     }
+
 }
