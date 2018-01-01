@@ -32,6 +32,8 @@
           <element id="library" level="project" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.2.0" />
           <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.3" />
           <element id="library" level="project" name="Maven: commons-io:commons-io:1.4" />
+          <element id="library" level="application" name="MarkdownConverter" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
         </element>
         <element id="dir-copy" path="$PROJECT_DIR$/src/main/web" />
         <element id="directory" name="resource">
