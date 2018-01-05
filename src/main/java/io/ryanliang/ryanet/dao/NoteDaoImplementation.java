@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class NoteDaoImplementation
-        extends GenericDaoImplementation<Note> implements NoteDaoInterface {
+        extends GenericDaoImplementation<Note, Integer>
+        implements NoteDao {
+
 
 }

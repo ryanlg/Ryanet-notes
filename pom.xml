@@ -15,6 +15,7 @@
         <mariadb.driver.version>2.2.0</mariadb.driver.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
     </properties>
 
     <dependencies>
@@ -71,6 +72,7 @@
             <version>${mariadb.driver.version}</version>
         </dependency>
 
+        <!-- Common FileUpload -->
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
@@ -83,6 +85,24 @@
             <version>1.4</version>
         </dependency>
 
+        <!-- Thymeleaf -->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf</artifactId>
+            <version>${thymeleaf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring5</artifactId>
+            <version>${thymeleaf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.25</version>
+        </dependency>
     </dependencies>
 
 

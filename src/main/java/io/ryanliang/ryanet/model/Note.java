@@ -17,6 +17,9 @@ public class Note {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "note_name")
+    private String name;
+
     @Column(name = "note_raw", nullable = false)
     private String raw;
 
@@ -47,6 +50,16 @@ public class Note {
     public void setRaw(String raw) {
 
         this.raw = raw;
+    }
+
+    public String getName() {
+
+        return name;
+    }
+
+    public void setName(String name) {
+
+        this.name = name;
     }
 
     public String getHtml() {

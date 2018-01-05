@@ -3,10 +3,9 @@ package io.ryanliang.ryanet.controller;
 import io.ryanliang.markdownconverter.PandocMarkdownConverter;
 import io.ryanliang.markdownconverter.error.MarkdownConverterException;
 import io.ryanliang.ryanet.model.Note;
-import io.ryanliang.ryanet.service.NoteServiceInterface;
+import io.ryanliang.ryanet.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,11 +17,11 @@ import java.time.LocalDateTime;
 @Controller
 public class UploadController {
 
-    private NoteServiceInterface noteService;
+    private NoteService noteService;
     private PandocMarkdownConverter markdownConverter;
 
     @Autowired
-    public void setNoteService(NoteServiceInterface noteService) {
+    public void setNoteService(NoteService noteService) {
 
         this.noteService = noteService;
     }
@@ -36,7 +35,7 @@ public class UploadController {
     @RequestMapping(value = "/upload", method = RequestMethod.GET)
     public String showUploadForm() {
 
-        return "upload";
+        return "upload.jsp";
     }
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
@@ -66,7 +65,7 @@ public class UploadController {
             }
         }
 
-        modelAndView.setViewName("uploaded");
+        modelAndView.setViewName("uploaded.jsp");
         modelAndView.addObject("greeting", s);
         System.out.println(s);
 

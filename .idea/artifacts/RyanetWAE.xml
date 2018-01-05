@@ -34,6 +34,13 @@
           <element id="library" level="project" name="Maven: commons-io:commons-io:1.4" />
           <element id="library" level="application" name="MarkdownConverter" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: ognl:ognl:3.1.12" />
+          <element id="library" level="project" name="Maven: org.attoparser:attoparser:2.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf-spring5:3.0.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf:3.0.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.unbescape:unbescape:1.1.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-simple:1.7.25" />
         </element>
         <element id="dir-copy" path="$PROJECT_DIR$/src/main/web" />
         <element id="directory" name="resource">

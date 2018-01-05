@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> List Test </title>
+</head>
+
+<body>
+
+<div>
+    <ul>
+        <li th:each="note: ${noteslist}">
+            <span th:text="${note.createdDate}" th:remove="tag"></span>
+            <a href='#' class='close' aria-hidden='true'>&times;</a>
+        </li>
+    </ul>
+
+</div>
+
+
+</body>
+
+</html>

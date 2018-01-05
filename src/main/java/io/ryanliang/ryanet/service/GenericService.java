@@ -1,7 +1,11 @@
 package io.ryanliang.ryanet.service;
 
-public interface GenericServiceInterface<GenericClass> {
+import java.util.List;
+
+public interface GenericService<GenericClass> {
 
     GenericClass save(GenericClass entity);
     GenericClass delete(GenericClass entity);
+
+    List<GenericClass> findAll();
 }
