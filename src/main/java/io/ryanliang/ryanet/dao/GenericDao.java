@@ -8,6 +8,7 @@ public interface GenericDao<GenericClass, IDClass extends Serializable> {
     // GenericClass findById(ID id, boolean lock);
 
      List<GenericClass> findAll();
+     GenericClass findOneByID(IDClass id);
 
     // List<GenericClass> findByExample(GenericClass exampleInstance);
 

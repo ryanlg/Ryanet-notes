@@ -39,4 +39,10 @@ public class NoteServiceImplementation implements NoteService {
         dao.delete(entity);
         return entity;
     }
+
+    @Override
+    public Note findOneByID(Integer id) {
+
+        return dao.findOneByID(id);
+    }
 }

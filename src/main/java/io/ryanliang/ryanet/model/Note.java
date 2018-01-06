@@ -15,7 +15,7 @@ public class Note {
     @Id
     @Column(name = "note_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "note_name")
     private String name;

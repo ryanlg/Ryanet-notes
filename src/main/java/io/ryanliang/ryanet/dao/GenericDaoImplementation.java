@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.GenericTypeResolver;
 import org.springframework.stereotype.Repository;
+import sun.net.www.content.text.Generic;
 
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -62,5 +63,18 @@ public abstract class GenericDaoImplementation<GenericClass, IDClass extends Ser
         CriteriaQuery<GenericClass> all = criteria.select(root);
         TypedQuery<GenericClass> allQuery = this.getSession().createQuery(all);
         return allQuery.getResultList();
+    }
+
+    @Override
+    public GenericClass findOneByID(IDClass id) {
+
+        CriteriaBuilder criteriaBuilder = this.getSession().getCriteriaBuilder();
+        CriteriaQuery<GenericClass> criteria = criteriaBuilder.createQuery(genericType);
+        Root<GenericClass> genericRoot = criteria.from(genericType);
+        criteria.where(criteriaBuilder.equal(genericRoot.get("id"), id));
+        TypedQuery<GenericClass> query = this.getSession().createQuery(criteria);
+
+        // since its id, it should be just one result.
+        return query.getSingleResult();
     }
 }
