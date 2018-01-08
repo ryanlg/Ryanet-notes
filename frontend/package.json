@@ -1,0 +1,17 @@
+{
+  "name": "ryanet-frontend",
+  "version": "0.1.0",
+  "description": "Frontend for Ryanet",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Ryan Liang",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xmomowan/Ryanet"
+  },
+  "license": "GPL-3.0",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "vue": "^2.5.13"
+  }
+}
