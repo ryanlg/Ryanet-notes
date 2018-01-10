@@ -6,9 +6,9 @@ const entrypoint = './src/main.ts';
 const filename = 'ryanet.js';
 const output = './../dist';
 
-function resolve (dir) {
+function resolve(dir) {
     return path.join(__dirname, '..', dir);
-} 
+}
 
 
 module.exports = {
@@ -27,14 +27,17 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader',
             },
+
             {
-                test: /\.tsx?$/,
+
+                test: /\.tsx?$|!\.vue$/,
                 loader: 'ts-loader',
                 options: {
                     configFile: "tsconfig.json",
+                    appendTsSuffixTo: [/\.vue$/],
                 },
+                exclude: /node_modules/
             },
-
 
             {
                 test: /\.js$/,
@@ -69,15 +72,15 @@ module.exports = {
     ],
 
     node: {
-      // prevent webpack from injecting useless setImmediate polyfill because Vue
-      // source contains it (although only uses it if it's native).
-      setImmediate: false,
-      // prevent webpack from injecting mocks to Node native modules
-      // that does not make sense for the client
-      dgram: 'empty',
-      fs: 'empty',
-      net: 'empty',
-      tls: 'empty',
-      child_process: 'empty'
+        // prevent webpack from injecting useless setImmediate polyfill because Vue
+        // source contains it (although only uses it if it's native).
+        setImmediate: false,
+        // prevent webpack from injecting mocks to Node native modules
+        // that does not make sense for the client
+        dgram: 'empty',
+        fs: 'empty',
+        net: 'empty',
+        tls: 'empty',
+        child_process: 'empty'
     }
 };
