@@ -4,7 +4,8 @@
       "module": "commonjs",
       "target": "es5",
       "strict": true,
-      "moduleResolution": "node"
+      "moduleResolution": "node",
+      "noImplicitThis": false
     },
 
     "include": [

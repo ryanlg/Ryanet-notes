@@ -1,4 +1,4 @@
-package io.ryanliang.ryanet.controller.api;
+package io.ryanliang.ryanet.controller.api.v1;
 
 import io.ryanliang.ryanet.model.Note;
 import io.ryanliang.ryanet.service.NoteService;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/note")
+@RequestMapping("/api/v1/note")
 public class NoteController {
 
     private NoteService noteService;
@@ -32,7 +32,7 @@ public class NoteController {
         return noteService.findOneByID(id);
     }
 
-    @GetMapping(value = "list", produces = "application/json; charset=UTF-8")
+    @GetMapping(value = "/list", produces = "application/json; charset=UTF-8")
     @ResponseBody
     public List getAllNotes(){
 
