@@ -1,6 +1,7 @@
 const path = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackNotifierPlugin = require('webpack-notifier');
 
 const entrypoint = './src/main.ts';
 const filename = 'ryanet.js';
@@ -68,7 +69,9 @@ module.exports = {
             filename: 'index.html',
             template: 'index.html',
             inject: true
-        })
+        }),
+
+        new WebpackNotifierPlugin()
     ],
 
     node: {
