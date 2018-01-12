@@ -45,7 +45,11 @@ export default Vue.component('upload', {
                 headers: { "content-type": "application/json; charset=utf-8"}
             }
 
-            axios.post("http://localhost:8080/Ryanet/api/v1/note/new", JSON.stringify(this.files), config)
+            let data = {
+                "notes": this.files
+            }
+
+            axios.post("http://localhost:8080/Ryanet/api/v1/note/new", JSON.stringify(data), config)
                  .then( (response) => {
 
                     console.log(response);
