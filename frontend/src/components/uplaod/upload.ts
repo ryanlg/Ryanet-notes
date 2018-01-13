@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import axios from 'axios'
+import 'mathjax'
 
 interface HTMLInputEvent extends Event {
     target: HTMLInputElement & EventTarget;
@@ -11,7 +12,8 @@ export default Vue.component('upload', {
 
         return {
 
-            files: []
+            files: [],
+            noteHtml: ''
        };
     },
 
@@ -52,8 +54,13 @@ export default Vue.component('upload', {
             axios.post("http://localhost:8080/Ryanet/api/v1/note/new", JSON.stringify(data), config)
                  .then( (response) => {
 
-                    console.log(response);
+                    this.noteHtml = response.data;
             });
+        },
+
+        onHTMLChange() {
+
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
 

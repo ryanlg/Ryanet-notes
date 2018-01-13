@@ -5,4 +5,5 @@
         <p>{{ file.content }}</p>
     </div>
     <button v-on:click="onSubmit()">Submit</button>
+    <p v-html="noteHtml" @change="onHTMLChange()"></p>
 </div>
