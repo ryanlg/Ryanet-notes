@@ -14,7 +14,7 @@ export default Vue.component('upload', {
 
             files: [],
             noteHtml: ''
-       };
+        };
     },
 
     methods: {
@@ -26,13 +26,12 @@ export default Vue.component('upload', {
                 const vueSelf = this;
                 const firstFile = fileList![0];
 
-                // this.file.title = firstFile.name;
                 let file = new RNFile();
                 file.name = firstFile.name;
 
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                    // vueSelf.file.content = reader.result;
+
                     file.content = reader.result;
                     // Or Vue can't detect the change (with files[0])
                     Vue.set(vueSelf.files, 0, file);
@@ -44,7 +43,7 @@ export default Vue.component('upload', {
         onSubmit() {
 
             let config = {
-                headers: { "content-type": "application/json; charset=utf-8"}
+                headers: { "content-type": "application/json; charset=utf-8" }
             }
 
             let data = {
@@ -52,15 +51,22 @@ export default Vue.component('upload', {
             }
 
             axios.post("http://localhost:8080/Ryanet/api/v1/note/new", JSON.stringify(data), config)
-                 .then( (response) => {
+                .then((response) => {
 
                     this.noteHtml = response.data;
             });
-        },
+        }
+    },
 
-        onHTMLChange() {
+    watch: {
+        noteHtml: function () {
 
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            // DOM update happens on the next tick.
+            // For Mathjax to work equations has to be in the DOM already.
+            Vue.nextTick(() => {
+
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub, "file_content"]);
+            })
         }
     }
 
