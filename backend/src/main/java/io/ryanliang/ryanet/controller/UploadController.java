@@ -2,7 +2,7 @@ package io.ryanliang.ryanet.controller;
 
 import io.ryanliang.markdownconverter.PandocMarkdownConverter;
 import io.ryanliang.markdownconverter.error.MarkdownConverterException;
-import io.ryanliang.ryanet.model.Note;
+import io.ryanliang.ryanet.model.persistence.Note;
 import io.ryanliang.ryanet.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

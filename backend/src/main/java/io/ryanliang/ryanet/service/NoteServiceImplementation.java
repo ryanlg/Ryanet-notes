@@ -1,7 +1,8 @@
 package io.ryanliang.ryanet.service;
 
 import io.ryanliang.ryanet.dao.NoteDao;
-import io.ryanliang.ryanet.model.Note;
+import io.ryanliang.ryanet.model.persistence.Note;
+import io.ryanliang.ryanet.model.response.NoteBasicResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,5 +45,12 @@ public class NoteServiceImplementation implements NoteService {
     public Note findOneByID(Integer id) {
 
         return dao.findOneByID(id);
+    }
+
+    @Override
+    public List<NoteBasicResponse> findAllNoteBasicResponses() {
+
+        // TODO: implement this
+        return null;
     }
 }

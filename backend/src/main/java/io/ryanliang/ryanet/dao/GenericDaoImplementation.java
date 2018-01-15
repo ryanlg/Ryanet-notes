@@ -11,6 +11,7 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import javax.persistence.criteria.Selection;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -36,7 +37,7 @@ public abstract class GenericDaoImplementation<GenericClass, IDClass extends Ser
         this.sessionFactory = sessionFactory;
     }
 
-    private Session getSession(){
+    Session getSession(){
 
         return this.sessionFactory.getCurrentSession();
     }
@@ -77,4 +78,5 @@ public abstract class GenericDaoImplementation<GenericClass, IDClass extends Ser
         // since its id, it should be just one result.
         return query.getSingleResult();
     }
+
 }
