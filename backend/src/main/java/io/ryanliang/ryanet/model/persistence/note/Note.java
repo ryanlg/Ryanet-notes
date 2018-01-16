@@ -1,4 +1,4 @@
-package io.ryanliang.ryanet.model.persistence;
+package io.ryanliang.ryanet.model.persistence.note;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

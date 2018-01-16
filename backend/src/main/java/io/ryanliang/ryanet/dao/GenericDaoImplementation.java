@@ -7,11 +7,14 @@ import org.springframework.core.GenericTypeResolver;
 import org.springframework.stereotype.Repository;
 import sun.net.www.content.text.Generic;
 
+import javax.persistence.Tuple;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Selection;
+import javax.persistence.metamodel.Attribute;
+import javax.persistence.metamodel.SingularAttribute;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -79,4 +82,24 @@ public abstract class GenericDaoImplementation<GenericClass, IDClass extends Ser
         return query.getSingleResult();
     }
 
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Tuple> findTuplesByColumns(Attribute[] columns) {
+
+        CriteriaBuilder criteriaBuilder = this.getSession().getCriteriaBuilder();
+        CriteriaQuery<Tuple> criteria = criteriaBuilder.createTupleQuery();
+        Root<GenericClass> noteRoot = criteria.from(genericType);
+
+        Selection[] selections = new Selection[columns.length];
+        for (int i = 0; i < selections.length; i++) {
+
+            if (columns[i] instanceof SingularAttribute) {
+
+                selections[i] = noteRoot.get((SingularAttribute) columns[i]);
+            }
+        }
+
+        TypedQuery<Tuple> query = this.getSession().createQuery(criteria);
+        return query.getResultList();
+    }
 }

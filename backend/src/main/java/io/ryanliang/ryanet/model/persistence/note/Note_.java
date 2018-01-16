@@ -1,4 +1,4 @@
-package io.ryanliang.ryanet.model.persistence;
+package io.ryanliang.ryanet.model.persistence.note;
 
 import java.time.LocalDateTime;
 import javax.annotation.Generated;
