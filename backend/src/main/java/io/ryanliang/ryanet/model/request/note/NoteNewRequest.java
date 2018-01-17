@@ -7,4 +7,9 @@ public class NoteNewRequest {
 
     @JsonProperty(value = NoteAPIs.NOTES, required = true)
     private NoteNew[] newNotes;
+
+    public NoteNew[] getNewNotes() {
+
+        return newNotes;
+    }
 }

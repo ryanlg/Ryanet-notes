@@ -7,9 +7,6 @@ import java.time.LocalDateTime;
 
 public class NoteNew {
 
-    @JsonProperty(value = NoteAPIs.NOTE_ID, required = true)
-    private Integer id;
-
     @JsonProperty(value = NoteAPIs.NOTE_NAME, required = true)
     private String name;
 
@@ -18,4 +15,19 @@ public class NoteNew {
 
     @JsonProperty(value = NoteAPIs.NOTE_CREATED_DATE)
     private LocalDateTime createdDate;
+
+    public String getName() {
+
+        return name;
+    }
+
+    public String getContent() {
+
+        return content;
+    }
+
+    public LocalDateTime getCreatedDate() {
+
+        return createdDate;
+    }
 }

@@ -47,7 +47,7 @@ export default Vue.component('upload', {
             }
 
             let data = {
-                "notes": this.files
+                "note": this.files
             }
 
             axios.post("http://localhost:8080/Ryanet/api/v1/note/new", JSON.stringify(data), config)
