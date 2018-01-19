@@ -3,7 +3,7 @@ package io.ryanliang.ryanet.model.response.note;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.ryanliang.ryanet.util.constant.NoteAPIs;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 public class NoteBasicInfo {
 
@@ -14,9 +14,9 @@ public class NoteBasicInfo {
     private String name;
 
     @JsonProperty(NoteAPIs.NOTE_MODIFIED_DATE)
-    private LocalDateTime modifiedDate;
+    private Instant modifiedDate;
 
-    public NoteBasicInfo(Integer id, String name, LocalDateTime modifiedDate) {
+    public NoteBasicInfo(Integer id, String name, Instant modifiedDate) {
 
         this.id = id;
         this.name = name;
@@ -43,12 +43,12 @@ public class NoteBasicInfo {
         this.name = name;
     }
 
-    public LocalDateTime getModifiedDate() {
+    public Instant getModifiedDate() {
 
         return modifiedDate;
     }
 
-    public void setModifiedDate(LocalDateTime modifiedDate) {
+    public void setModifiedDate(Instant modifiedDate) {
 
         this.modifiedDate = modifiedDate;
     }

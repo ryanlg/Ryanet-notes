@@ -98,6 +98,7 @@ public abstract class GenericDaoImplementation<GenericClass, IDClass extends Ser
                 selections[i] = noteRoot.get((SingularAttribute) columns[i]);
             }
         }
+        criteria.multiselect(selections);
 
         TypedQuery<Tuple> query = this.getSession().createQuery(criteria);
         return query.getResultList();

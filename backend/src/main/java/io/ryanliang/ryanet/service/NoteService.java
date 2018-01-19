@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface NoteService extends GenericService<Note, Integer> {
 
-    List<NoteBasicInfo> findAllNoteBasicResponses();
+    List<NoteBasicInfo> findAllNoteBasicInfos();
 }

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Tuple;
 import javax.persistence.metamodel.Attribute;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +54,7 @@ public class NoteServiceImplementation implements NoteService {
     }
 
     @Override
-    public List<NoteBasicInfo> findAllNoteBasicResponses() {
+    public List<NoteBasicInfo> findAllNoteBasicInfos() {
 
         List<Tuple> found = dao.findTuplesByColumns(
                 new Attribute[]{Note_.id, Note_.name, Note_.modifiedDate});
@@ -63,7 +64,7 @@ public class NoteServiceImplementation implements NoteService {
 
             Integer id = (Integer) tuple.get(0);
             String name = (String) tuple.get(1);
-            LocalDateTime modifiedDate = (LocalDateTime) tuple.get(2);
+            Instant modifiedDate = (Instant) tuple.get(2);
 
             NoteBasicInfo basicResponse = new NoteBasicInfo(id, name, modifiedDate);
             resultList.add(basicResponse);
