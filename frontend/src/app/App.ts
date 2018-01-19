@@ -2,9 +2,11 @@ import axios from 'axios';
 import Vue from 'vue';
 
 export default Vue.extend({
-    data: () => {
+    data() {
+
         return {
-            note: 'Fetching data, or something is wrong' 
+
+            notes: 'Fetching data, or something is wrong',
         }
     },
 
@@ -13,8 +15,14 @@ export default Vue.extend({
         getNote() {
 
             axios.get("http://localhost:8080/Ryanet/api/v1/note/list").then( (response) => {
-                this.note = response.data;
+
+                this.notes = response.data;
             });
+        },
+
+        getPathToSpecificNote(id: String) {
+
+            return "http://localhost:8080/Ryanet/api/v1/note/" + id;
         }
     },
     
