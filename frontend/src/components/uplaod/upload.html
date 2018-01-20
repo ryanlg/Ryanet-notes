@@ -1,9 +1,20 @@
 <div id="uplaod">
-    <input type="file" @change="onFileChange($event)">
-    <div v-for="file in files">
+
+    <!-- Wrapper for mutliple files input -->
+    <div v-for="(wrapper, index) in noteWrappers">
+        <input type="file" @change="onFileChange($event, index)">
+        <input v-model="wrapper.note.name" placeholder="Name">
+    </div>
+
+    <!-- <div v-for="file in files">
         <p>{{ file.name }}</p>
         <p>{{ file.content }}</p>
-    </div>
-    <button v-on:click="onSubmit()">Submit</button>
+    </div> -->
+    <button v-if="canAddMoreNoteInput()" v-on:click="onAddMoreNoteInput()">
+        Add More
+    </button>
+    <button v-on:click="onSubmit()">
+        Submit
+    </button>
     <p id="file_content" v-html="noteHtml" @change="onHTMLChange()"></p>
 </div>

@@ -2,41 +2,54 @@ import Vue from 'vue'
 import axios from 'axios'
 import 'mathjax'
 
-interface HTMLInputEvent extends Event {
-    target: HTMLInputElement & EventTarget;
-}
-
 export default Vue.component('upload', {
 
     data() {
 
         return {
 
-            files: [],
+            noteWrappers: [new RNNewFileDomWrapper()], // the default one for display
             noteHtml: ''
         };
     },
 
     methods: {
 
-        onFileChange(event: HTMLInputEvent) {
+        onFileChange(event: HTMLInputEvent, index: number) {
 
-            let fileList = event.target.files;
-            if (fileList != null) {
-                const vueSelf = this;
-                const firstFile = fileList![0];
+            const vueSelf = this;
+            const capturedIndex = index; // TODO: do I have to do this?
+            const length = this.noteWrappers.length;
 
-                let file = new RNFile();
-                file.name = firstFile.name;
+            if (index >= 0 && index < length) {
 
-                var reader = new FileReader();
-                reader.onload = function (e) {
+                // there should only be one file
+                let fileArray = event.target.files;
+                if (fileArray != null) {
 
-                    file.content = reader.result;
-                    // Or Vue can't detect the change (with files[0])
-                    Vue.set(vueSelf.files, 0, file);
+                    const firstFile = fileArray[0];
+
+                    let file = new RNNewFile();
+                    file.name = firstFile.name;
+                    // Make it look better
+                    file.trimExtentionFilename();
+                    file.camelToRegularFilename();
+
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+
+                        file.content = reader.result;
+
+                        // wrap it
+                        let noteWrapper = new RNNewFileDomWrapper();
+                        noteWrapper.note = file;
+                        noteWrapper.uploaded = true;
+
+                        // Or Vue can't detect the change
+                        Vue.set(vueSelf.noteWrappers, capturedIndex, noteWrapper);
+                    }
+                    reader.readAsText(firstFile);
                 }
-                reader.readAsText(firstFile);
             }
         },
 
@@ -54,7 +67,19 @@ export default Vue.component('upload', {
                 .then((response) => {
 
                     this.noteHtml = response.data;
-            });
+                });
+        },
+
+        onAddMoreNoteInput() {
+
+            this.noteWrappers.push(new RNNewFileDomWrapper);
+        },
+
+        canAddMoreNoteInput() {
+
+            const length = this.noteWrappers.length;
+            const lastFileWrapper: RNNewFileDomWrapper = this.noteWrappers[length - 1];
+            return lastFileWrapper.uploaded;
         }
     },
 
@@ -72,10 +97,33 @@ export default Vue.component('upload', {
 
 });
 
-class RNFile {
+interface HTMLInputEvent extends Event {
+    target: HTMLInputElement & EventTarget;
+}
+class RNNewFile {
 
-    name: String;
-    content: String;
-    createdTime: Date;
-    modifiedTime: Date;
+    name: string;
+    content: string;
+
+    trimExtentionFilename(): void {
+
+        this.name = this.name.replace(/\..+$/, '');
+    }
+
+
+    camelToRegularFilename(): void {
+
+        this.name = this.name.replace(/([a-z])([A-Z])/g, '$1 $2');
+    }
+}
+
+class RNNewFileDomWrapper {
+
+    note: RNNewFile;
+    uploaded: boolean;
+
+    constructor(){
+        this.note = new RNNewFile();
+        this.uploaded = false;
+    }
 }
