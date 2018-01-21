@@ -2,6 +2,8 @@ import Vue from 'vue'
 import axios from 'axios'
 import 'mathjax'
 
+import config from '@config'
+
 export default Vue.component('upload', {
 
     data() {
@@ -55,7 +57,7 @@ export default Vue.component('upload', {
 
         onSubmit() {
 
-            let config = {
+            let headers = {
                 headers: { "content-type": "application/json; charset=utf-8" }
             }
 
@@ -71,9 +73,7 @@ export default Vue.component('upload', {
                 "notes": actualNoteList
             }
 
-            console.log(JSON.stringify(data));
-
-            axios.post("http://localhost:8080/Ryanet/api/v1/note/new", JSON.stringify(data), config)
+            axios.post(config.backend("/api/v1/note/new"), JSON.stringify(data), headers)
                 .then((response) => {
 
                     this.noteHtml = response.data;

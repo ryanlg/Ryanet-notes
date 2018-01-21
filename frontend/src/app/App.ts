@@ -1,6 +1,8 @@
 import axios from 'axios';
 import Vue from 'vue';
 
+import Config from '@config'
+
 export default Vue.extend({
     data() {
 
@@ -14,7 +16,7 @@ export default Vue.extend({
 
         getNote() {
 
-            axios.get("http://localhost:8080/Ryanet/api/v1/note/list").then( (response) => {
+            axios.get(Config.backend("/api/v1/note/list")).then( (response) => {
 
                 this.notes = response.data;
             });
@@ -22,7 +24,7 @@ export default Vue.extend({
 
         getPathToSpecificNote(id: String) {
 
-            return "http://localhost:8080/Ryanet/api/v1/note/" + id;
+            return Config.backend("/api/v1/note/") + id;
         }
     },
     

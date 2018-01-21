@@ -1,7 +1,6 @@
 const path = require('path');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackNotifierPlugin = require('webpack-notifier');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const entrypoint = './src/main.ts';
 const filename = 'ryanet.js';
@@ -10,7 +9,6 @@ const output = './../dist';
 function resolve(dir) {
     return path.join(__dirname, '..', dir);
 }
-
 
 module.exports = {
 
@@ -57,21 +55,20 @@ module.exports = {
         alias: {
             // has to be vue.esm.js, or it adds extra .defualt to `new Vue`
             'vue$': 'vue/dist/vue.esm.js'
-        }
+        },
+        // it has to be here, not the other plugins
+        plugins: [
+            new TsconfigPathsPlugin()
+        ]
     },
 
     plugins: [
-        // uncomment for analyzer
-        // new BundleAnalyzerPlugin({
-        //     analyzerMode: 'static'
-        // }),
+
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'index.html',
             inject: true
-        }),
-
-        new WebpackNotifierPlugin()
+        })
     ],
 
     node: {

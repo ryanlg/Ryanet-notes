@@ -5,11 +5,17 @@
       "target": "es5",
       "strict": true,
       "moduleResolution": "node",
-      "noImplicitThis": false
+      "noImplicitThis": false,
+      "baseUrl": ".",
+      "paths": {
+          "@config": ["config/GeneralConfig"]
+      }
     },
 
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "config/**/*",
+        "build/**/*"
     ],
 
     "exclude": [
