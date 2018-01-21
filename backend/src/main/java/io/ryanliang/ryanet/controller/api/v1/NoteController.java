@@ -10,7 +10,6 @@ import io.ryanliang.ryanet.model.request.note.NoteNew;
 import io.ryanliang.ryanet.model.request.note.NoteNewRequest;
 import io.ryanliang.ryanet.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -21,7 +20,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletRequest;
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.Instant;
 import java.util.List;
 
@@ -69,12 +70,21 @@ public class NoteController {
     // * POST Methods *
     // --------------
 
+    // TODO: better error handle
     @CrossOrigin // TODO: delete this
     @PostMapping(value = "/new")
     @ResponseBody
-    public ResponseEntity postOrUpdateNewNote(HttpEntity<String> httpEntity) {
+    public ResponseEntity postOrUpdateNewNote(ServletRequest httpEntity) {
 
-        String responseBody = httpEntity.getBody();
+        InputStream responseBody;
+        try {
+
+            responseBody = httpEntity.getInputStream();
+        } catch (IOException e) {
+
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
         ObjectMapper mapper = new ObjectMapper();
         NoteNewRequest newRequest;
@@ -93,33 +103,37 @@ public class NoteController {
 
         if (newRequest != null) {
 
-            NoteNew[] newNotes = newRequest.getNewNotes();
-            if (newNotes.length > 0) {
+            List<NoteNew> newNotes = newRequest.getNewNotes();
+            if (newNotes.size() > 0) {
 
-                // TODO: Change this logic
-                NoteNew firstNewNote = newNotes[0];
+                for (NoteNew newNote : newNotes) {
 
-                Note note = new Note();
-                String name = firstNewNote.getName();
-                note.setName(name);
+                    Note note = new Note();
+                    String name = newNote.getName();
+                    note.setName(name);
 
-                String content = firstNewNote.getContent();
-                note.setRaw(content);
+                    String content = newNote.getContent();
+                    note.setRaw(content);
 
-                note.setCreatedDate(Instant.now());
-                note.setModifiedDate(Instant.now());
+                    note.setCreatedDate(Instant.now());
+                    note.setModifiedDate(Instant.now());
 
-                try {
+                    try {
 
-                    note.setHtml(markdownConverter.convert(content));
-                    return new ResponseEntity<>(note.getHtml(), HttpStatus.OK);
-                }catch (MarkdownConverterException e) {
+                        note.setHtml(markdownConverter.convert(content));
+                    }catch (MarkdownConverterException e) {
 
-                    e.printStackTrace();
-                    return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-                }
-            }
-        } else {
+                        e.printStackTrace();
+                        return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+                    }
+
+                    // saving one by one
+                    noteService.save(note);
+                } // for
+
+                return new ResponseEntity<List>(noteService.findAllNoteBasicInfos(), HttpStatus.OK);
+            } // if length
+        } else { // if not null
 
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }

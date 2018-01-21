@@ -59,9 +59,19 @@ export default Vue.component('upload', {
                 headers: { "content-type": "application/json; charset=utf-8" }
             }
 
-            let data = {
-                "note": this.files
+            let actualNoteList: RNNewFile[] = [];
+            let wrapperListLength = this.noteWrappers.length;
+
+            for(let i = 0; i < wrapperListLength; i++) {
+
+                actualNoteList.push(this.noteWrappers[i].note);
             }
+
+            let data = {
+                "notes": actualNoteList
+            }
+
+            console.log(JSON.stringify(data));
 
             axios.post("http://localhost:8080/Ryanet/api/v1/note/new", JSON.stringify(data), config)
                 .then((response) => {

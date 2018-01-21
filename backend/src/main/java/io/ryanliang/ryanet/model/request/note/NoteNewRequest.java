@@ -3,12 +3,14 @@ package io.ryanliang.ryanet.model.request.note;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.ryanliang.ryanet.util.constant.NoteAPIs;
 
+import java.util.List;
+
 public class NoteNewRequest {
 
     @JsonProperty(value = NoteAPIs.NOTES, required = true)
-    private NoteNew[] newNotes;
+    private List<NoteNew> newNotes;
 
-    public NoteNew[] getNewNotes() {
+    public List<NoteNew> getNewNotes() {
 
         return newNotes;
     }
