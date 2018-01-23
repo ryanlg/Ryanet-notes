@@ -12,7 +12,9 @@ function resolve(dir) {
 
 module.exports = {
 
-    entry: entrypoint,
+    entry: [
+        entrypoint
+    ],
 
     output: {
         path: path.resolve(__dirname, output),

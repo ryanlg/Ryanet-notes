@@ -9,6 +9,8 @@ export class BaseConfig implements Config {
 
         return this.backendURL + append;
     }
+
+    public devServerPort = 8081;
 }
 
 export default new BaseConfig();

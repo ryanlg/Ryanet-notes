@@ -10,7 +10,8 @@ export default Vue.component('upload', {
 
         return {
 
-            noteWrappers: [new RNNewFileDomWrapper()], // the default one for display
+            // the default one for display
+            noteWrappers: [new RNNewFileDomWrapper()], 
             noteHtml: ''
         };
     },
