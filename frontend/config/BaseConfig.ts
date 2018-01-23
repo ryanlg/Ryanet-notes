@@ -1,9 +1,8 @@
-import { resolve } from 'url';
 import Config from './Config';
 
 export class BaseConfig implements Config {
 
-    public backendURL: string
+    public backendURL: string;
 
     public backend(append: string):string {
 

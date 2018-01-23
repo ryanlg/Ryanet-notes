@@ -1,14 +1,13 @@
-import Vue from 'vue';
+import vue from 'vue';
 import App from './App.vue';
-import Upload from './components/uplaod/upload.vue'
+import upload from './components/upload/upload.vue';
 
-new Vue ({
+new vue({
     el: '#app',
-    
     components: {
         App,
-        Upload
+        upload,
     },
     // render: h => h( App)
-    template: '<App/>'
+    template: '<App/>',
 });

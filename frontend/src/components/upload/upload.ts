@@ -1,8 +1,8 @@
-import Vue from 'vue'
-import axios from 'axios'
-import 'mathjax'
+import Vue from 'vue';
+import axios from 'axios';
+import 'mathjax';
 
-import config from '@config'
+import config from '@config';
 
 export default Vue.component('upload', {
 
@@ -12,45 +12,43 @@ export default Vue.component('upload', {
 
             // the default one for display
             noteWrappers: [new RNNewFileDomWrapper()], 
-            noteHtml: ''
         };
     },
 
     methods: {
 
         onFileChange(event: HTMLInputEvent, index: number) {
-
-            const vueSelf = this;
-            const capturedIndex = index; // TODO: do I have to do this?
             const length = this.noteWrappers.length;
 
             if (index >= 0 && index < length) {
 
                 // there should only be one file
-                let fileArray = event.target.files;
+                const fileArray = event.target.files;
                 if (fileArray != null) {
 
                     const firstFile = fileArray[0];
 
-                    let file = new RNNewFile();
+                    const file = new RNNewFile();
                     file.name = firstFile.name;
                     // Make it look better
                     file.trimExtentionFilename();
                     file.camelToRegularFilename();
 
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
+                    const reader = new FileReader();
+
+                    // arrow function instead of assigning this
+                    reader.onload = () => {
 
                         file.content = reader.result;
 
                         // wrap it
-                        let noteWrapper = new RNNewFileDomWrapper();
+                        const noteWrapper = new RNNewFileDomWrapper();
                         noteWrapper.note = file;
                         noteWrapper.uploaded = true;
 
                         // Or Vue can't detect the change
-                        Vue.set(vueSelf.noteWrappers, capturedIndex, noteWrapper);
-                    }
+                        Vue.set(this.noteWrappers, index, noteWrapper);
+                    };
                     reader.readAsText(firstFile);
                 }
             }
@@ -58,23 +56,23 @@ export default Vue.component('upload', {
 
         onSubmit() {
 
-            let headers = {
-                headers: { "content-type": "application/json; charset=utf-8" }
-            }
+            const headers = {
+                headers: { 'content-type': 'application/json; charset=utf-8' },
+            };
 
-            let actualNoteList: RNNewFile[] = [];
-            let wrapperListLength = this.noteWrappers.length;
+            const actualNoteList: RNNewFile[] = [];
+            const wrapperListLength = this.noteWrappers.length;
 
-            for(let i = 0; i < wrapperListLength; i++) {
+            for (let i = 0; i < wrapperListLength; i = i + 1) {
 
                 actualNoteList.push(this.noteWrappers[i].note);
             }
 
-            let data = {
-                "notes": actualNoteList
-            }
+            const data = {
+                notes: actualNoteList,
+            };
 
-            axios.post(config.backend("/api/v1/note/new"), JSON.stringify(data), headers)
+            axios.post(config.backend('/api/v1/note/new'), JSON.stringify(data), headers)
                 .then((response) => {
 
                     this.noteHtml = response.data;
@@ -91,20 +89,20 @@ export default Vue.component('upload', {
             const length = this.noteWrappers.length;
             const lastFileWrapper: RNNewFileDomWrapper = this.noteWrappers[length - 1];
             return lastFileWrapper.uploaded;
-        }
+        },
     },
 
     watch: {
-        noteHtml: function () {
+        noteHtml() {
 
             // DOM update happens on the next tick.
             // For Mathjax to work equations has to be in the DOM already.
             Vue.nextTick(() => {
 
-                MathJax.Hub.Queue(["Typeset", MathJax.Hub, "file_content"]);
-            })
-        }
-    }
+                MathJax.Hub.Queue(['Typeset', MathJax.Hub,'file_content']);
+            });
+        },
+    },
 
 });
 
@@ -133,7 +131,7 @@ class RNNewFileDomWrapper {
     note: RNNewFile;
     uploaded: boolean;
 
-    constructor(){
+    constructor() {
         this.note = new RNNewFile();
         this.uploaded = false;
     }

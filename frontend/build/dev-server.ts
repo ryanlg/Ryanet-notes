@@ -11,8 +11,8 @@ let webpackDevelopmentConfig = require('./webpack.dev.config');
 webpackDevelopmentConfig = webpackMerge(webpackDevelopmentConfig, {
 
     entry: [
-        'webpack-hot-middleware/client'
-    ]
+        'webpack-hot-middleware/client',
+    ],
 });
 
 // Using express for server

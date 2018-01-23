@@ -1,13 +1,13 @@
 import DevelopmentConfig from 'config/DevelopmentConfig';
-import EnvConstants from 'build/env.constants'
+import EnvConstants from 'build/env.constants';
 import Config from 'config/Config';
 
-let exportConfig: Config
+let exportConfig: Config;
 
-if (process.env.NODE_ENV == EnvConstants.dev){
+if (process.env.NODE_ENV === EnvConstants.dev) {
 
     exportConfig = DevelopmentConfig;
-} else{
+} else {
 
     // TODO: new config
     exportConfig = DevelopmentConfig; 

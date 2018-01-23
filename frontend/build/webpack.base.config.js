@@ -1,9 +1,11 @@
+// Suppress lint error for dependencies
+/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const entrypoint = './src/main.ts';
-const filename = 'ryanet.js';
+const fn = 'ryanet.js';
 const output = './../dist';
 
 function resolve(dir) {
@@ -13,12 +15,12 @@ function resolve(dir) {
 module.exports = {
 
     entry: [
-        entrypoint
+        entrypoint,
     ],
 
     output: {
         path: path.resolve(__dirname, output),
-        filename: filename
+        filename: fn,
     },
 
     module: {
@@ -30,22 +32,22 @@ module.exports = {
             },
 
             {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                include: [resolve('src')],
+            },
+
+            {
 
                 test: /\.tsx?$|!\.vue$/,
                 loader: 'ts-loader',
                 options: {
-                    configFile: "tsconfig.json",
+                    configFile: 'tsconfig.json',
                     appendTsSuffixTo: [/\.vue$/],
                 },
-                exclude: /node_modules/
+                exclude: /node_modules/,
             },
-
-            {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                include: [resolve('src')]
-            }
-        ]
+        ],
     },
 
     resolve: {
@@ -56,12 +58,12 @@ module.exports = {
         ],
         alias: {
             // has to be vue.esm.js, or it adds extra .defualt to `new Vue`
-            'vue$': 'vue/dist/vue.esm.js'
+            vue$: 'vue/dist/vue.esm.js',
         },
         // it has to be here, not the other plugins
         plugins: [
-            new TsconfigPathsPlugin()
-        ]
+            new TsconfigPathsPlugin(),
+        ],
     },
 
     plugins: [
@@ -69,8 +71,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'index.html',
-            inject: true
-        })
+            inject: true,
+        }),
     ],
 
     node: {
@@ -79,10 +81,10 @@ module.exports = {
         setImmediate: false,
         // prevent webpack from injecting mocks to Node native modules
         // that does not make sense for the client
-        dgram: 'empty',
-        fs: 'empty',
-        net: 'empty',
-        tls: 'empty',
-        child_process: 'empty'
-    }
+        // dgram: 'empty',
+        // fs: 'empty',
+        // net: 'empty',
+        // tls: 'empty',
+        // child_process: 'empty',
+    },
 };
