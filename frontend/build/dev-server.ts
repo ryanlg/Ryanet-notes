@@ -24,4 +24,5 @@ const hotMiddleware = WebpackHotMiddleware(compiler);
 app.use(devMiddleware);
 app.use(hotMiddleware);
 
-export default app.listen(config.devServerPort);
+app.listen(config.devServerPort);
+export default app;

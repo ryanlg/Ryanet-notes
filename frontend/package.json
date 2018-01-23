@@ -5,8 +5,9 @@
     "main": "index.js",
     "scripts": {
         "build": "webpack --config ./build/webpack.config.js",
-        "dev-watch": "webpack --watch --config ./build/webpack.dev.config.js",
-        "dev-server": "ts-node -r tsconfig-paths/register build/dev-server.ts"
+        "dev-watch": "export NODE_ENV=\"development\"; webpack --watch --config ./build/webpack.dev.config.js",
+        "dev-server": "export NODE_ENV=\"development\"; ts-node -r tsconfig-paths/register build/dev-server.ts",
+        "mock-server": "export NODE_ENV='\"mock\"'; ts-node -r tsconfig-paths/register build/mock-server.ts"
     },
     "author": "Ryan Liang",
     "repository": {

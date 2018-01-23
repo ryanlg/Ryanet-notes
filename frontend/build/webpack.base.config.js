@@ -1,6 +1,7 @@
 // Suppress lint error for dependencies
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
@@ -73,6 +74,13 @@ module.exports = {
             template: 'index.html',
             inject: true,
         }),
+
+        new webpack.DefinePlugin({
+            'process.env': {
+                // Has to be stringified
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+            },
+        }),
     ],
 
     node: {
@@ -81,10 +89,10 @@ module.exports = {
         setImmediate: false,
         // prevent webpack from injecting mocks to Node native modules
         // that does not make sense for the client
-        // dgram: 'empty',
-        // fs: 'empty',
-        // net: 'empty',
-        // tls: 'empty',
-        // child_process: 'empty',
+        dgram: 'empty',
+        fs: 'empty',
+        net: 'empty',
+        tls: 'empty',
+        child_process: 'empty',
     },
 };

@@ -6,9 +6,6 @@ const webpackMerge = require('webpack-merge');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const FriendlyErrorPlugin = require('friendly-errors-webpack-plugin');
 
-// required for parsing .ts
-require('ts-node').register();
-const EnvConstants = require('./env.constants.ts');
 const baseWebpackConfig = require('./webpack.base.config');
 
 module.exports = webpackMerge(baseWebpackConfig, {
@@ -21,12 +18,6 @@ module.exports = webpackMerge(baseWebpackConfig, {
         // }),
 
         new WebpackNotifierPlugin(),
-
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: EnvConstants.dev,
-            },
-        }),
 
         // HRM
         new webpack.HotModuleReplacementPlugin(),
