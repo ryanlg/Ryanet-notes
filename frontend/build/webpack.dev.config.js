@@ -10,6 +10,15 @@ const baseWebpackConfig = require('./webpack.base.config');
 
 module.exports = webpackMerge(baseWebpackConfig, {
 
+    module: {
+        loaders: [
+            {
+                test: /\.scss$/,
+                loader: 'style!css!sass',
+            },
+        ],
+    },
+
     plugins: [
 
         // uncomment for analyzer
