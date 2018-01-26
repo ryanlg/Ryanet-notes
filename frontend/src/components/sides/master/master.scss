@@ -1,8 +1,8 @@
 .side {
     height: 100%;
-}
 
-.side.side-master {
-    width: 350px;
-    background-color: black;
+    &.side-master {
+        width: 350px;
+        border-right: 1px solid lightgray;
+    }
 }

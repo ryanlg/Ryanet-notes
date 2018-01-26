@@ -14,7 +14,19 @@ module.exports = webpackMerge(baseWebpackConfig, {
         loaders: [
             {
                 test: /\.scss$/,
-                loader: 'style!css!sass',
+                use: [
+                    { loader: 'style-loader' },
+                    { loader: 'css-loader' },
+                    { loader: 'sass-loader' },
+                ],
+            },
+
+            {
+                test: /\.css$/,
+                loaders: [
+                    'style-loader',
+                    'css-loader?sourceMap',
+                ],
             },
         ],
     },
