@@ -10,6 +10,6 @@ import 'assets/style/global.scss'; // Global styles
 export default Vue.extend({
     name: 'App',
     components: {
-        master
+        master,
     },
 });
