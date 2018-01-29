@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-import { RLCellNote } from 'src/model/RLCellNote';
+import { RLCellNote } from 'src/model';
 
 export default Vue.component('note-cell', {
 

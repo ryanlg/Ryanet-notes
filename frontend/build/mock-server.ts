@@ -6,7 +6,7 @@ import app from './dev-server';
 app.get('/api/v1/note/list', (req, res) => {
 
     res.type('json');
-    res.send('[{"id":1,"name":null,"modified_date":"2018-01-05T14:22:25Z"},{"id":2,"name":null,"modified_date":"2018-01-05T14:22:27Z"},{"id":3,"name":"Circular Motion","modified_date":"2018-01-20T10:40:26Z"},{"id":4,"name":"Circular Motion","modified_date":"2018-01-20T10:43:07Z"},{"id":5,"name":"Motion In1D","modified_date":"2018-01-20T10:43:07Z"}]');
+    res.send('[{"id":1,"name":"Test One","modified_date":"2018-01-05T14:22:25Z"},{"id":2,"name":"Hello?","modified_date":"2018-01-05T14:22:27Z"},{"id":3,"name":"Circular Motion","modified_date":"2018-01-20T10:40:26Z"},{"id":4,"name":"Circular Motion","modified_date":"2018-01-20T10:43:07Z"},{"id":5,"name":"Motion In1D","modified_date":"2018-01-20T10:43:07Z"}]');
 });
 
 app.get('/api/v1/note/*', (req, res) => {

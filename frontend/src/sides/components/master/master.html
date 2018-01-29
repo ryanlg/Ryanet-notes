@@ -1,0 +1,8 @@
+<div id="side-master" class="side side-master">
+
+    <note-cell v-for="note in notes" 
+                :key="note.modifiedTime" 
+               :note="toCellNote(note)">
+    </note-cell>
+    
+</div>

@@ -1,4 +1,4 @@
-export class RLCellNote {
+export default class RLCellNote {
 
     id: number;
     name: string;

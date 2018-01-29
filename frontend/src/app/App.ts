@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import axios from 'axios';
-import master from 'src/components/sides/master';
+import { master } from 'src/sides/';
 
 import Config from '@config';
 

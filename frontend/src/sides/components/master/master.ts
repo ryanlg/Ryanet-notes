@@ -3,8 +3,8 @@ import axios from 'axios';
 
 import config from '@config';
 
-import 'src/components/cells/note';
-import { RLCellNote } from 'src/model/RLCellNote';
+import { NoteCell } from 'src/cells';
+import { RLCellNote } from 'src/model';
 
 export default Vue.component('master', {
 
