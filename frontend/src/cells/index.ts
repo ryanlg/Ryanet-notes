@@ -1,1 +1,1 @@
-export { default as NoteCell } from './component/note';
+export { default as NoteCell } from './note';

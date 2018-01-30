@@ -1,1 +1,1 @@
-export { default as master } from './components/master';
+export { default as master } from './master';
