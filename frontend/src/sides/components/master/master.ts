@@ -8,6 +8,10 @@ import { RLCellNote } from 'src/model';
 
 export default Vue.component('master', {
 
+    components: {
+        'note-cell': NoteCell,
+    },
+
     data() {
 
         return {

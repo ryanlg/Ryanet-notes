@@ -2,7 +2,7 @@ import Vue from 'vue';
 
 import { RLCellNote } from 'src/model';
 
-export default Vue.component('note-cell', {
+export default Vue.extend({
 
     props: {
 
