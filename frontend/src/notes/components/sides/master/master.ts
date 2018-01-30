@@ -1,12 +1,13 @@
-import Vue from 'vue';
 import axios from 'axios';
 
 import config from '@config';
 
-import { NoteCell } from 'src/cells';
+import { NoteCell } from 'src/notes/components/cells';
 import { RLCellNote } from 'src/model';
 
-export default Vue.component('master', {
+export default {
+
+    name: 'master',
 
     components: {
         'note-cell': NoteCell,
@@ -44,4 +45,4 @@ export default Vue.component('master', {
 
         this.getNotes();
     },
-});
+};

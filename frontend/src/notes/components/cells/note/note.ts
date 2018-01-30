@@ -1,8 +1,6 @@
-import Vue from 'vue';
-
 import { RLCellNote } from 'src/model';
 
-export default Vue.extend({
+export default {
 
     props: {
 
@@ -21,4 +19,4 @@ export default Vue.extend({
     methods: {
     },
 
-});
+};
