@@ -2,7 +2,7 @@ import index from '.';
 
 export default [
     {
-        path: '/notes',
+        path: '/',
         name: 'notesIndex',
         component: index,
     },

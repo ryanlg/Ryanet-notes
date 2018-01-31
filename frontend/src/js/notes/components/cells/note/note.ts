@@ -1,4 +1,4 @@
-import { RLCellNote } from 'src/model';
+import { RLCellNote } from '@notes/model';
 
 export default {
 

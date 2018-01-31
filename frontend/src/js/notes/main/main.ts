@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-import { master } from '../components/sides';
+import { master } from '@notes/components/sides';
 
 export default  {
 

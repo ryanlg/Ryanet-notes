@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import axios from 'axios';
-import notes from 'src/notes';
+import { notes } from 'src/js';
 
 import Config from '@config';
 

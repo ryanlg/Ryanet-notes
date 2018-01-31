@@ -2,8 +2,8 @@ import axios from 'axios';
 
 import config from '@config';
 
-import { NoteCell } from 'src/notes/components/cells';
-import { RLCellNote } from 'src/model';
+import { NoteCell } from '../../cells';
+import { RLCellNote } from 'src/js/notes/model';
 
 export default {
 

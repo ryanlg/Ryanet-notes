@@ -8,6 +8,8 @@
       "noImplicitThis": false,
       "baseUrl": ".",
       "paths": {
+          "@notes": ["src/js/notes"],
+          "@notes/*": ["src/js/notes/*"],
           "@config": ["config/GeneralConfig"]
       }
     },
