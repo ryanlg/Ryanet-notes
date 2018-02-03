@@ -15,6 +15,13 @@ export class BaseConfig implements Config {
         return this.backend(this.noteApiUrl + append);
     }
 
+    public noteBaseUrl = '/note';
+    public noteBase(append: string): string {
+
+        return this.noteBaseUrl + append;
+    }
+
+
     public devServerPort = 8081;
 }
 

@@ -6,5 +6,8 @@ export default interface Config {
     noteApiUrl: string;
     noteApi(append: string): string;
 
+    noteBaseUrl: string;
+    noteBase(append: string): string;
+
     devServerPort: number;
 }

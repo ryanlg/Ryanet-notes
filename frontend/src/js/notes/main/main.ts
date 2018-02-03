@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-import { master } from '@notes/components/sides';
+import { master, viewer } from '@notes/components/sides';
 
 export default  {
 
@@ -8,6 +8,20 @@ export default  {
 
     components: {
         master,
+        viewer,
+    },
+
+    computed: {
+
+        id() {
+       
+            if (this.$router.params.id) {
+                
+                return this.$router.params.id;
+            }
+
+            return null;
+        },
     },
 
 };
