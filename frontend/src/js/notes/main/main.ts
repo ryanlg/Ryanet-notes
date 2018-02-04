@@ -12,10 +12,12 @@ export default  {
     },
 
     computed: {
+        
+        
 
         id() {
        
-            if (this.$router.params.id) {
+            if (typeof (this.$router.params.id) !== undefined) {
                 
                 return this.$router.params.id;
             }

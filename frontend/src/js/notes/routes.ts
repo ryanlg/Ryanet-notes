@@ -3,7 +3,9 @@ import index from '.';
 export default [
     {
         path: '/',
-        component: index,
+        component: {
+            
+        },
     },
 
     {
