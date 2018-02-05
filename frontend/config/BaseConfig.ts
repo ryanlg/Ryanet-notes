@@ -15,7 +15,7 @@ export class BaseConfig implements Config {
         return this.backend(this.noteApiUrl + append);
     }
 
-    public noteBaseUrl = '/note';
+    public noteBaseUrl = '/notes';
     public noteBase(append: string): string {
 
         return this.noteBaseUrl + append;

@@ -4,8 +4,6 @@ import NoteService from 'src/util/NoteService';
 
 export default {
 
-    name: 'viewer',
-
     props: {
 
         id: {
@@ -18,22 +16,18 @@ export default {
         return {
             
             note: null,
+            noteHtml: '',
         };
-    },
-
-    computed: {
-
-        noteHtml() {
-
-            return this.note.content;
-        },
     },
 
     created() {
 
+        console.log('created');
         NoteService.getNoteByID(this.id).then((res) => {
 
-            this.note = res;
+            console.log(res);
+            
+            this.noteHtml = res;
         });
     },
 };

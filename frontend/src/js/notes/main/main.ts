@@ -4,8 +4,6 @@ import { master, viewer } from '@notes/components/sides';
 
 export default  {
 
-    name: 'notes',
-
     components: {
         master,
         viewer,
