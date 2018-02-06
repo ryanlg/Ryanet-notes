@@ -4,15 +4,43 @@
 import app from './dev-server';
 
 app.get('/api/v1/note/list', (req, res) => {
-
     res.type('json');
-    res.send('[{"id":1,"name":"Test One","modified_date":"2018-01-05T14:22:25Z"},{"id":2,"name":"Hello?","modified_date":"2018-01-05T14:22:27Z"},{"id":3,"name":"Circular Motion","modified_date":"2018-01-20T10:40:26Z"},{"id":4,"name":"Circular Motion","modified_date":"2018-01-20T10:43:07Z"},{"id":5,"name":"Motion In1D","modified_date":"2018-01-20T10:43:07Z"}]');
+    res.send(
+        '[{"id":1,"name":"Test One","modified_date":"2018-01-05T14:22:25Z"},{"id":2,"name":"Test Two","modified_date":"2018-01-05T14:22:27Z"},{"id":3,"name":"Test Three","modified_date":"2018-01-20T10:40:26Z"},{"id":4,"name":"Test Four","modified_date":"2018-01-20T10:43:07Z"},{"id":5,"name":"Test Five","modified_date":"2018-01-20T10:43:07Z"}]'
+    );
 });
 
-app.get('/api/v1/note/*', (req, res) => {
-
+app.get('/api/v1/note/1', (req, res) => {
     res.type('json');
-    res.send("{\"id\":1,\"name\":null,\"raw\":\"# gravity\\n\\n#### newton's law of " +
-    "universal gravitation\\n$$\\n\\\\vec{F}_{12} = -G\\\\frac{m_1m_2}{r^2}\\\\hat{r}_{12}\\n$$\\n$$\\n\\\\vec{F}_{21} = -G\\\\frac{m_1m_2}{r^2}\\\\hat{r}_{21} = -\\\\vec{F}_{12}\\n$$\\n$$\\nG = 6.673 \\\\times 10^-11 \\\\, Nm^2/kg^2\\n$$\\n\\n#### kepler's first law\\n- all planets move in elliptical orbits with the sun at one focus\\n\\n#### kepler's second law\\n- the radius vector from sun to a planet sweeps out equal areas in equal time intervals\\n\\n#### kepler's third law\\n$$\\nT^2 = \\\\frac{4\\\\pi^2}{GM_{sun}}a^3 = K_s a^3 \\\\\\\\\\na = \\\\text{semimajor axis}\\n$$\\n\\n#### gravitational force\\n- it is a conservative force\\n$$\\nW = \\\\int_{r_i}^{r_f} \\\\vec{F}_g \\\\cdot d\\\\vec{r} = \\\\frac{Gm_1m_2}{r_f}-\\\\frac{Gm_1m_2}{r_i} = (-U_f) - (-U_i)\\n$$\\n\\n- a potential energy can be defined\\n$$\\nU = -\\\\frac{Gm_1m_2}{r}\\n$$\\n\\n#### equations\\n##### for a circular orbit\\n- force on m\\n$$\\nF_G = \\\\frac{GMm}{r^2}\\n$$\\n\\n- orbiting speed\\n$$\\nv^2 = \\\\frac{GM}{r}\\n$$\\n\\n- kinetic energy\\n$$\\nKE = \\\\frac12 mv^2\\n$$\\n\\n- potential energy\\n$$\\nU_G = -\\\\frac{GMm}{r} = -2 KE\\n$$\\n\\n- total energy\\n$$\\nE = KE + U_G = -\\\\frac12 (\\\\frac{GMm}{r}) = -KE\\n$$\\n\\n##### for a generic elliptical orbit\\n$$\\nE = -\\\\frac12 (\\\\frac{GMm}{a}) \\\\\\\\\\n\\\\text{a: semi-major axis}\\n$$\\n\\n#### escape speed\\n$$\\nv_{\\\\text{earth_esc}} = \\\\sqrt{\\\\frac{2GM_E}{R_E}} = 11.2 \\\\, km/s\\n$$\\n\\n#### Three Astronautical Speeds\\n##### first (orbiting near earth surface)\\n$$\\nv_1 = 7.9 km/s\\n$$\\n\\n##### second (escaping the earth)\\n$$\\nv_2 = 11.2 km/s\\n$$\\n\\n##### third (escaping solar system)\\n$$\\nv_3 = 16.7 km/s\\n$$\\n\",\"html\":null,\"createdDate\":\"2018-01-05T14:22:25Z\",\"modifiedDate\":\"2018-01-05T14:22:25Z\", \"html\":\"}, \"html\":\"<h2 id=\\\"circular-motion\\\">circular motion</h2>\\n<h3 " +
-    "id=\\\"differential-of-a-vector\\\">differential of a vector</h3>\\n<p>$$ dr = dr\\\\hat{r} + r , d\\\\theta \\\\hat{\\\\theta} $$</p>\\n<h3 id=\\\"velocity-in-circular-motion\\\">velocity in circular motion</h3>\\n<h4 id=\\\"recall\\\">recall</h4>\\n<p>$$ dr = dr\\\\hat{\\\\mathbf r} + r , d\\\\theta \\\\hat{\\\\mathbf \\\\theta} $$</p>\\n<h4 id=\\\"for-circular-motion-dr0\\\">for circular motion $dr=0$</h4>\\n<p>$$ dr = dr\\\\hat{r} + r , d\\\\theta , \\\\hat{\\\\theta} \\\\implies v=\\\\frac{dr}{dt}=r\\\\frac{d\\\\theta}{dt}\\\\hat{\\\\theta} $$</p>\\n<p><strong>in circular motion, velocity is always in tangential direction, i.e. always perpendicular to radical vector</strong></p>\\n<h4 id=\\\"angular-velocity\\\">angular velocity</h4>\\n<p>$$ v=\\\\frac{dr}{dt}=r\\\\frac{d\\\\theta}{dt}\\\\hat{\\\\theta}=r\\\\omega\\\\hat{\\\\theta} \\\\ |v| = r\\\\omega $$</p>\\n<h2 id=\\\"non-uniform-circular-motion\\\">non-uniform circular motion</h2>\\n<ul>\\n<li>In a generic (non-uniform) circular motion, acceleration usually has both centripetal and tangential components</li>\\n</ul>\\n<h4 id=\\\"total-acceleration\\\">total acceleration</h4>\\n<p>$$ a = a_c + a_t $$</p>\\n<h2 id=\\\"uniform-circular-motion\\\">uniform circular motion</h2>\\n<ul>\\n<li>is circular motion with constant angular velocity ($\\\\omega$)</li>\\n</ul>\\n<p>$$ T = \\\\frac{2\\\\pi}{\\\\omega} = \\\\frac{2\\\\pi r}{v} $$</p>\\n<h3 id=\\\"acceleration-in-uniform-circular-motion\\\">acceleration in uniform circular motion</h3>\\n<h4 id=\\\"recall-1\\\">recall</h4>\\n<p>$$ v= r \\\\omega \\\\hat{\\\\theta} $$</p>\\n<h4 id=\\\"for-uniform-circular-motion-r-and-omega-are-both-constants\\\">for uniform circular motion, $r$ and $\\\\omega$ are both constants</h4>\\n<p>$$ \\\\frac{d\\\\hat{\\\\theta}}{dt} = \\\\omega(-\\\\hat{r}) \\\\implies a = \\\\frac{dv}{dt} = r \\\\omega \\\\frac{d\\\\hat{\\\\theta}}{dt} = r\\\\omega^2(-\\\\hat{r}) $$</p>\\n<h4 id=\\\"centripetal-acceleration\\\">centripetal acceleration</h4>\\n<p>a is always pointing toward the center</p>\\n<h4 id=\\\"properties\\\">properties</h4>\\n<p>$$ a_c = r\\\\omega^2 = v^2/r $$</p>\\n<h3 id=\\\"examples\\\">Examples</h3>\\n<h4 id=\\\"car-at-a-turn-level-road\\\">car at a turn (level road)</h4>\\n<p>$$ f_s &lt; \\\\mu_s n = \\\\mu_smg \\\\ v&lt;\\\\sqrt{\\\\mu_sgr} $$</p>\\n<h4 id=\\\"car-turning-on-a-banked-curve\\\">car turning on a banked curve</h4>\\n<p>$$ v=\\\\sqrt{rg\\\\tan\\\\theta} $$</p>\\n<h4 id=\\\"roller-coaster\\\">roller coaster</h4>\\n<p>$$ \\\\text{at top point A:}\\\\ F_c = mg + T_{top} = \\\\frac{mv^2}{R}\\\\ v\\\\gt\\\\sqrt{gR} $$</p>\\n<h3 id=\\\"motion-in-accelerated-frame\\\">motion in accelerated frame</h3>\\n<h4 id=\\\"concept\\\">concept</h4>\\n<ul>\\n<li>Newton’s 2nd Law Applies only in inertial reference frame</li>\\n<li>Reference Frame A (inertial): $F = ma =m \\\\frac{dv}{dt}$</li>\\n<li>Reference Frame B (Moving w.r.t to Frame A with $a_0=\\\\frac{dv_0}{dt}$):<br />\\nIn Frame B: $v’= v - v_0 \\\\implies a’= \\\\frac{dv’}{dt} = \\\\frac{dv}{dt} – \\\\frac{dv_0}{dt}$</li>\\n</ul>\\n<p>$$ \\\\implies ma’ = F - ma_0 = F’ $$</p>\\n<ul>\\n<li>a fictitious force $F_{fictitious} =-ma_0$ has to be introduced to, artificially, keep the same form of the 2nd Law</li>\\n</ul>\\n<h4 id=\\\"fictitious-force\\\">fictitious force</h4>\\n<p>$$ \\\\text{in an accelerating frame:}\\\\ F_{fictious} = -Ma_0 \\\\ F’ = F_{real} + F_{fictious} = ma $$</p>\\n<h3 id=\\\"terminate-speed\\\">terminate speed</h3>\\n<h4 id=\\\"resistance-force\\\">resistance force</h4>\\n<p>$$ R = \\\\frac12 D \\\\rho Av^2 \\\\ D \\\\text {: drag coefficient} \\\\ \\\\rho \\\\text{: density of air} \\\\ A \\\\text{: cross-sectional area of moving object} $$</p>\\n<h4 id=\\\"terminate-speed-v_t\\\">terminate speed ($v_T$)</h4>\\n<p>$$mg = R$$ $$ v_t = \\\\sqrt{\\\\frac{2mg}{D\\\\rho A}} $$</p>\\n<hr />\\n<h2 id=\\\"relative-motion\\\">relative motion</h2>\\n<center>\\nAll motions are measured in a reference frame. Same motion can be measured to be differently in different reference frame\\n</center>\\n<h4 id=\\\"conversion-between-reference-frames\\\">Conversion between reference frames</h4>\\n<p>$$ \\\\vec{v}<em>{\\\\text{obj_wrt_FrameB}} = \\\\vec{v}</em>{\\\\text{obj_wrt_FrameA}} + \\\\vec{v}_{\\\\text{FrameA_wrt_FrameB}} $$</p>\\n\"");
-})
+    res.send(
+        '{"id":1,"name":"Test One","raw":"#### hello1?", "html": "<h2 id=\\"hello1\\">hello1?</h2>"}'
+    );
+});
+
+app.get('/api/v1/note/2', (req, res) => {
+    res.type('json');
+    res.send(
+        '{"id":2,"name":"Test Two","raw":"#### hello2?", "html": "<h2 id=\\"hello2\\">hello2?</h2>"}'
+    );
+});
+
+app.get('/api/v1/note/3', (req, res) => {
+    res.type('json');
+    res.send(
+        '{"id":3,"name":"Test Three","raw":"#### hello3?", "html": "<h2 id=\\"hello3\\">hello3?</h2>"}'
+    );
+});
+
+app.get('/api/v1/note/4', (req, res) => {
+    res.type('json');
+    res.send(
+        '{"id":4,"name":"Test Four","raw":"#### hello4?", "html": "<h2 id=\\"hello4\\">hello4?</h2>"}'
+    );
+});
+
+app.get('/api/v1/note/5', (req, res) => {
+    res.type('json');
+    res.send(
+        '{"id":5,"name":"Test Five","raw":"#### hello5?", "html": "<h2 id=\\"hello5\\">hello5?</h2>"}'
+    );
+});
