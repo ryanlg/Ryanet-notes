@@ -18,7 +18,7 @@ export default {
                 const newNote = new RLNote;
                 newNote.id = id;
                 newNote.name = noteJson.name;
-                newNote.content = noteJson.raw; // TODO: content should be html not raw
+                newNote.content = noteJson.html; // TODO: content should be html not raw
                 // TODO: extract incoming note to model too
 
                 resolve(newNote);

@@ -49,6 +49,7 @@ public class NoteController {
     // * Get Methods *
     // --------------
 
+    @CrossOrigin
     @GetMapping(value = "/{id}", produces = "application/json; charset=UTF-8")
     @ResponseBody
     public Note getNoteWithID(@PathVariable Integer id) {
