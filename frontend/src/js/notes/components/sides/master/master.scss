@@ -1,8 +1,10 @@
+@import '~@notes/style/constants.scss';
+
 .side {
     height: 100%;
 
     &.side-master {
-        width: 350px;
+        width: $master-width;
         border-right: 1px solid lightgray;
     }
 }
