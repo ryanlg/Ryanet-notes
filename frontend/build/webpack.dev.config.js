@@ -28,6 +28,15 @@ module.exports = webpackMerge(baseWebpackConfig, {
                     'css-loader?sourceMap',
                 ],
             },
+
+            {
+                test: /\.woff2$/,
+                loader: 'file-loader',
+                // options: {
+                //     name: '/assets/fonts/[hash][name].[ext]',
+                //     publicPath: '/',
+                // },
+            },
         ],
     },
 
