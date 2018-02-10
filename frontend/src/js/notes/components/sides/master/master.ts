@@ -31,13 +31,8 @@ export default {
         },
 
         toCellNote(oriNote: any) {
-
-            const cellNote = new RLCellNote();
-            cellNote.id = oriNote.id;
-            cellNote.name = oriNote.name;
-            cellNote.modifiedTime = oriNote.modifiedTime;
-
-            return cellNote;
+  
+            return new RLCellNote(oriNote.id, oriNote.name, oriNote.modifiedTime, '');
         },
     },
 

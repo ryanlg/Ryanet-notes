@@ -19,7 +19,8 @@ export default {
     watch: {
         id() {
             NoteService.getNoteByID(this.id).then((res) => {
-                this.noteHtml = res.content;
+                
+                this.noteHtml = res.html;
             });
         },
     },
