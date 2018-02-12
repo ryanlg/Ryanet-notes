@@ -4,9 +4,7 @@ import NoteService from 'src/util/NoteService';
 
 export default {
     props: {
-        id: {
-            required: true,
-        },
+        id: {},
     },
 
     data() {
@@ -18,10 +16,14 @@ export default {
 
     watch: {
         id() {
-            NoteService.getNoteByID(this.id).then((res) => {
+            
+            if (typeof this.id !== 'undefined') {
+
+                NoteService.getNoteByID(this.id).then((res) => {
                 
-                this.noteHtml = res.html;
-            });
+                    this.noteHtml = res.html;
+                });
+            }
         },
     },
 };
