@@ -12,6 +12,6 @@ I am writing study notes with Markdown now so I am trying to make myself a littl
 (Without an app on my phone obviously because I am a nerd)
 
 ## What is on my todo list
-- A little dump bucket thingy to write all my whining words and suicidal shit or something and dump them with amazing animations or what not.
+- A little dump bucket thingy to write all my whining words or something and dump them with amazing animations or what not.
 - A private, also a public blog cause why not.
 
