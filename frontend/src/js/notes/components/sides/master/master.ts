@@ -4,12 +4,14 @@ import config from '@config';
 
 import { NoteCell } from '../../cells';
 import { RLCellNote } from 'src/js/notes/model';
+import Upload from './components/upload';
 
 export default {
 
     name: 'master',
 
     components: {
+        Upload,
         'note-cell': NoteCell,
     },
 

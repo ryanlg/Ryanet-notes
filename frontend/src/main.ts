@@ -8,7 +8,6 @@ new vue({
     el: '#app',
     components: {
         App,
-        upload,
     },
     // render: h => h( App)
     template: '<App/>',

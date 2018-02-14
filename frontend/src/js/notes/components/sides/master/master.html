@@ -1,5 +1,7 @@
 <div id="side-master" class="side side-master">
 
+    <upload></upload>
+
     <note-cell v-for="note in notes" 
                 :key="note.modifiedTime" 
                :note="toCellNote(note)">
