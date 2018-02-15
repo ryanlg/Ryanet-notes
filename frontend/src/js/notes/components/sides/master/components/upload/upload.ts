@@ -6,4 +6,13 @@ export default {
 
         Modal,
     },
+
+    methods: {
+
+        // have to relay dismiss cause vue only $emit to the direct parent
+        relayDismiss() {
+
+            this.$emit('modal-dismiss');
+        },
+    },
 };

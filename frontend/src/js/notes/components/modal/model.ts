@@ -1,22 +1,9 @@
 export default {
 
-    // data() {
+    methods: {
+        dismissSelf() {
 
-    //     return {
-
-    //         showBool: false,
-    //     };
-    // },
-
-    // methods: {
-    //     show() {
-
-    //         this.showBool = true;
-    //     },
-
-    //     hide() {
-
-    //         this.showBool = false;
-    //     },
-    // },
+            this.$emit('modal-dismiss');
+        },
+    },
 };

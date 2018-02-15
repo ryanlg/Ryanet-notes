@@ -1,6 +1,7 @@
 <div id="side-master" class="side side-master">
 
-    <upload></upload>
+    <button id="toogle" @click="toggleUpload()">Upload</button>
+    <upload v-if="showUpload" v-on:modal-dismiss="toggleUpload()"></upload>
 
     <note-cell v-for="note in notes" 
                 :key="note.modifiedTime" 
