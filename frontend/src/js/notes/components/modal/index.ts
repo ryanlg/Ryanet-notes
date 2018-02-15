@@ -1,2 +1,2 @@
-import modal from './model.vue';
+import modal from './modal.vue';
 export default modal;
