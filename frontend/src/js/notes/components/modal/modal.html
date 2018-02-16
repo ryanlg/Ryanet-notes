@@ -1,11 +1,13 @@
-<div class="modal modal-root">
-    <div class="modal modal-table">
-        <div class="modal modal-wrapper">
-            <div class="modal modal-root modal-mask" @click="dismissSelf()"></div>
-            <div class="modal modal-container">
-                <slot>
-                </slot>
+<transition name="modal">
+    <div class="modal modal-root">
+        <div class="modal modal-table">
+            <div class="modal modal-wrapper">
+                <div class="modal modal-root modal-mask" @click="dismissSelf()"></div>
+                <div class="modal modal-container">
+                    <slot>
+                    </slot>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</transition>
