@@ -10,8 +10,6 @@ export default {
         // TODO: complete this logic
         if (!RLJson.contains(oriNote, ['id', 'name', 'html'])) {
 
-            console.log('hi');
-            
             throw new Error('Get your json right in backendJsonToRLNote');
         }
 

@@ -8,6 +8,7 @@ export default {
         } catch (e) {
             // it works!
             parsed = jsonObj;
+            console.log(e);
         }
 
         if (elm.constructor === Array) {

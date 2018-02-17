@@ -33,7 +33,8 @@ public class MarkdownConverterConfig implements ServletContextAware{
                     @Override
                     public String getParameters() {
 
-                        return "--from=markdown-tex_math_dollars-raw_tex --to=html --mathjax";
+                        return "--from=markdown-tex_math_dollars-raw_tex-superscript-subscript " +
+                                "--to=html --mathjax";
                     }
                 };
             }
