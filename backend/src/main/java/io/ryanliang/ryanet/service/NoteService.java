@@ -1,7 +1,6 @@
 package io.ryanliang.ryanet.service;
 
 import io.ryanliang.ryanet.model.persistence.note.Note;
-import io.ryanliang.ryanet.model.request.note.NoteRequest;
 import io.ryanliang.ryanet.model.response.note.NoteBasicInfo;
 
 import java.util.List;

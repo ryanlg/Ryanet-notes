@@ -26,9 +26,6 @@ public class Note {
     @Column(name = "note_html")
     private String html;
 
-    @Column(name = "note_excerpt")
-    private String excerpt;
-
     @Column(name = "note_date_created", nullable = false)
     private Instant createdDate;
 
@@ -93,15 +90,5 @@ public class Note {
     public void setModifiedDate(Instant modifiedDate) {
 
         this.modifiedDate = modifiedDate;
-    }
-
-    public String getExcerpt() {
-
-        return excerpt;
-    }
-
-    public void setExcerpt(String excerpt) {
-
-        this.excerpt = excerpt;
     }
 }

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.ryanliang.markdownconverter.PandocMarkdownConverter;
 import io.ryanliang.markdownconverter.error.MarkdownConverterException;
 import io.ryanliang.ryanet.model.persistence.note.Note;
-import io.ryanliang.ryanet.model.request.note.NoteRequest;
+import io.ryanliang.ryanet.model.request.note.NoteNew;
 import io.ryanliang.ryanet.model.request.note.NoteNewRequest;
 import io.ryanliang.ryanet.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,10 +104,10 @@ public class NoteController {
 
         if (newRequest != null) {
 
-            List<NoteRequest> newNotes = newRequest.getNewNotes();
+            List<NoteNew> newNotes = newRequest.getNewNotes();
             if (newNotes.size() > 0) {
 
-                for (NoteRequest newNote : newNotes) {
+                for (NoteNew newNote : newNotes) {
 
                     Note note = new Note();
                     String name = newNote.getName();
@@ -115,8 +115,6 @@ public class NoteController {
 
                     String content = newNote.getContent();
                     note.setRaw(content);
-
-                    note.setExcerpt(this.generateExcerptFromRaw(note.getRaw()));
 
                     note.setCreatedDate(Instant.now());
                     note.setModifiedDate(Instant.now());
@@ -145,10 +143,5 @@ public class NoteController {
     }
 
 
-    private String generateExcerptFromRaw(String raw){
-
-        // TODO: change this logic
-        return raw.substring(35);
-    }
 }
 

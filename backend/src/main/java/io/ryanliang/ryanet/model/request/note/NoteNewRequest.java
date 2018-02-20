@@ -8,9 +8,9 @@ import java.util.List;
 public class NoteNewRequest {
 
     @JsonProperty(value = NoteAPIs.NOTES, required = true)
-    private List<NoteRequest> newNotes;
+    private List<NoteNew> newNotes;
 
-    public List<NoteRequest> getNewNotes() {
+    public List<NoteNew> getNewNotes() {
 
         return newNotes;
     }
