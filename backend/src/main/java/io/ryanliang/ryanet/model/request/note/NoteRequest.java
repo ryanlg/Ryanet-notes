@@ -5,7 +5,7 @@ import io.ryanliang.ryanet.util.constant.NoteAPIs;
 
 import java.time.LocalDateTime;
 
-public class NoteNew {
+public class NoteRequest {
 
     @JsonProperty(value = NoteAPIs.NOTE_NAME, required = true)
     private String name;

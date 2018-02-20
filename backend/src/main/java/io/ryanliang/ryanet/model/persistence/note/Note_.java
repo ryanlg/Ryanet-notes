@@ -15,6 +15,6 @@ public abstract class Note_ {
 	public static volatile SingularAttribute<Note, String> raw;
 	public static volatile SingularAttribute<Note, String> html;
 	public static volatile SingularAttribute<Note, Integer> id;
-
+	public static volatile SingularAttribute<Note, String> excerpt;
 }
 

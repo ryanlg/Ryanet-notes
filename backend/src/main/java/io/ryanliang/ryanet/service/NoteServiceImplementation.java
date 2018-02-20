@@ -3,6 +3,7 @@ package io.ryanliang.ryanet.service;
 import io.ryanliang.ryanet.dao.NoteDao;
 import io.ryanliang.ryanet.model.persistence.note.Note;
 import io.ryanliang.ryanet.model.persistence.note.Note_;
+import io.ryanliang.ryanet.model.request.note.NoteRequest;
 import io.ryanliang.ryanet.model.response.note.NoteBasicInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -72,4 +73,5 @@ public class NoteServiceImplementation implements NoteService {
 
         return resultList;
     }
+
 }
