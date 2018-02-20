@@ -1,8 +1,9 @@
 # Todo List of Ryanet
 
-- slay ~~the spire~~ the midterm!
+## in progress
+- prettify master
+
 ## Frontend
-- add excerpt function
 - prettify master
 - prettify viewer
 - prettify upload

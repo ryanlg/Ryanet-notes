@@ -35,7 +35,7 @@ export default {
 
         toCellNote(oriNote: any) {
   
-            return new RLCellNote(oriNote.id, oriNote.name, oriNote.modifiedTime, '');
+            return new RLCellNote(oriNote.id, oriNote.name, oriNote.modified_date, '');
         },
 
         toggleUpload() {

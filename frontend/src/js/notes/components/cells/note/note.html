@@ -1,3 +1,10 @@
-<div class="cell note-cell">
-    <router-link :to="getURL()" append>{{ noteName }}</router-link>
-</div>
+<router-link :to="getURL()" append>
+    <div class="cell note-cell" >
+        <div class="note-cell-title">
+            {{ noteName }}
+        </div>
+        <div class="note-cell-title">
+            {{ noteModifiedTime }}
+        </div>
+    </div>
+</router-link>

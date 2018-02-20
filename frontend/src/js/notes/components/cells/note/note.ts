@@ -15,6 +15,7 @@ export default {
         return {
 
             noteName: this.note.name,
+            noteModifiedTime: this.note.modifiedTime,
         };
     },
 
