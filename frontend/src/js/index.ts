@@ -1,2 +1,2 @@
 export { default as routes } from './routes';
-export { default as notes } from './notes';
+export { default as dumpbucket } from './dumpbucket';

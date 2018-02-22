@@ -10,6 +10,8 @@
       "paths": {
           "@notes": ["src/js/notes"],
           "@notes/*": ["src/js/notes/*"],
+          "@dumpbucket": ["src/js/dumpbucket"],
+          "@dumpbucket/*": ["src/js/dumpbucket/*"],
           "@config": ["config/GeneralConfig"]
       }
     },

@@ -1,3 +1,3 @@
-import { routes as notes } from '@notes';
+import { routes as dumpbucket } from '@dumpbucket';
 
-export default [...notes];
+export default [...dumpbucket];
